@@ -12,7 +12,7 @@ import SwiftData
 struct GimmeApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Ingredient.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,7 +25,8 @@ struct GimmeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: RecipeViewModel(modelContext: sharedModelContainer.mainContext))
+                .preferredColorScheme(.light)
         }
         .modelContainer(sharedModelContainer)
     }
