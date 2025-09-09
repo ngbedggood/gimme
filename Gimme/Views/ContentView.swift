@@ -43,6 +43,12 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            Text(Date(), format: .dateTime
+                    .year(.defaultDigits)
+                    .month(.wide)
+                    .day(.defaultDigits)
+                    .weekday(.wide)
+            )
             VStack{
                 HStack {
                     Button("Name"){
